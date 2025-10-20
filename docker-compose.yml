@@ -53,7 +53,7 @@ services:
             context: .
             dockerfile: Dockerfile
         container_name: laravel_vite
-        command: npm run dev
+        command: sh -c "npm install && npm run dev"
         volumes:
             - .:/var/www
         ports:
