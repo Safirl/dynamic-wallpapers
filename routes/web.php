@@ -15,10 +15,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::get('/wallpaper', function () {
-    $wallpaper = Wallpaper();
-//    $wallpaper->
+//    $wallpaper = new Wallpaper();
+//    $wallpaper->name = "test";
+//    $wallpaper->is_public = true;
+//    $wallpaper->download_count = 1;
+//    $wallpaper->save();
 
-//    return '';
+    return Wallpaper::all();
 });
 
 require __DIR__.'/settings.php';

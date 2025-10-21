@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('is_public')->default(true);
-            $table->string('download_count')->default(0);
+            $table->integer('download_count')->default(0);
             $table->foreignId('creator_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });
