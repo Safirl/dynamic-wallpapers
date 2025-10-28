@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('wallpaper_user', function (Blueprint $table) {
             $table->id();
-            $table->string("path");
-            $table->foreignId("wallpaper_id")->constrained()->onDelete("cascade");
-            $table->integer("position");
-            $table->integer("transition_duration");
-            $table->integer("duration");
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('wallpaper_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+            $table->unique(['user_id', 'wallpaper_id']);
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('wallpaper_user');
     }
 };
