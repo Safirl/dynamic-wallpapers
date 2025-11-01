@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-
         User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@example.com',
@@ -26,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'password',
         ]);
 
-        Wallpaper::factory()->count(5)->afterCreating(
+        Wallpaper::factory()->count(20)->afterCreating(
             function (Wallpaper $wallpaper) {
                 $count = rand(2, 5);
 
